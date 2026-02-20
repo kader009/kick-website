@@ -1,52 +1,74 @@
-import Image from 'next/image';
+import Container from './ui/Container';
 
 export default function Hero() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 mb-20">
-      <div className="bg-[#ECEEF0] rounded-3xl p-8 md:p-16 flex flex-col md:flex-row relative overflow-hidden group">
-        
-        {/* Left Content */}
-        <div className="md:w-1/2 z-10 flex flex-col justify-center">
-          <h1 className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.85] text-black">
-            DO IT <span className="text-blue-600">RIGHT</span>
-          </h1>
-          <div className="mt-8">
-            <h2 className="text-xl md:text-3xl font-extrabold uppercase bg-black text-white inline-block px-4 py-2 transform -skew-x-12">
+    <Container>
+      <div className="flex flex-col items-center mt-2 md:mt-8 mb-20 w-full relative z-0">
+        {/* Title */}
+        <h1
+          className="text-[223px] md:text-[180px] font-black uppercase leading-[0.85] text-[#232321] tracking-tighter text-center mb-6 md:mb-10 w-full"
+        >
+          DO IT <span className="text-[#4A69E2]">RIGHT</span>
+        </h1>
+
+        {/* Hero Image Container */}
+        <div className="relative w-full aspect-4/5 md:aspect-21/9 md:h-[700px] rounded-[48px] overflow-hidden bg-gray-200 shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
+          <img
+            src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=2000&q=80"
+            alt="Nike Air Max"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+
+          <div className="absolute inset-0 bg-black/10"></div>
+
+          {/* Vertical Badge */}
+          <div className="absolute left-0 top-[20%] md:top-1/4 bg-[#232321] text-[#E7E7E3] px-3 py-6 md:py-8 rounded-r-[16px] z-10 flex items-center justify-center">
+            <span
+              className="text-[10px] md:text-xs font-semibold tracking-wider"
+              style={{
+                writingMode: 'vertical-rl',
+                transform: 'rotate(180deg)',
+              }}
+            >
+              Nike product of the year
+            </span>
+          </div>
+
+          {/* Bottom Left Content */}
+          <div className="absolute bottom-8 left-6 md:bottom-16 md:left-16 z-10 flex flex-col gap-2 md:gap-3">
+            <h2
+              className="text-white text-5xl md:text-[76px] font-black uppercase drop-shadow-xl tracking-tighter leading-none"
+              style={{ fontFamily: 'var(--font-rubik)' }}
+            >
               NIKE AIR MAX
             </h2>
-          </div>
-          <p className="mt-6 text-gray-700 text-lg max-w-sm font-medium">
-            Nike introducing the new air max for everyone - comfortable and durable.
-          </p>
-          <div className="mt-8">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-xl transition-all shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1">
+            <p className="text-white text-sm md:text-lg font-medium max-w-[280px] md:max-w-[360px] leading-snug drop-shadow-md">
+              Nike introducing the new air max for everyone's comfort
+            </p>
+            <button className="bg-[#4A69E2] hover:bg-blue-600 text-white font-bold py-3 px-6 md:px-8 rounded-xl transition-all shadow-lg w-max mt-3 md:mt-4 text-xs md:text-sm uppercase tracking-wide">
               SHOP NOW
             </button>
           </div>
-        </div>
 
-        {/* Right Images */}
-        <div className="md:w-1/2 mt-12 md:mt-0 relative flex justify-center items-center z-10">
-          <img 
-            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-            alt="Main Shoe" 
-            className="w-full max-w-lg object-contain transform -rotate-12 group-hover:rotate-0 group-hover:scale-110 transition-transform duration-700 ease-out drop-shadow-2xl"
-          />
-          
-          {/* Thumbnails */}
-          <div className="absolute right-0 bottom-0 md:-right-8 md:-bottom-8 flex flex-col gap-4">
-            <div className="w-24 h-24 bg-white rounded-2xl p-2 shadow-xl border-2 border-white cursor-pointer hover:border-blue-500 transition overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=200&q=80" alt="Thumb 1" className="w-full h-full object-cover rounded-xl" />
+          {/* Bottom Right Thumbnails */}
+          <div className="absolute bottom-8 right-6 md:bottom-12 md:right-12 z-10 flex flex-col gap-3 md:gap-4">
+            <div className="w-[70px] h-[70px] md:w-[120px] md:h-[120px] rounded-[16px] md:rounded-[24px] overflow-hidden border-2 md:border-[3px] border-white shadow-xl cursor-pointer hover:scale-105 transition-transform">
+              <img
+                src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=300&q=80"
+                alt="Shoe Variant 1"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="w-24 h-24 bg-white rounded-2xl p-2 shadow-xl border-2 border-white cursor-pointer hover:border-blue-500 transition overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=200&q=80" alt="Thumb 2" className="w-full h-full object-cover rounded-xl" />
+            <div className="w-[70px] h-[70px] md:w-[120px] md:h-[120px] rounded-[16px] md:rounded-[24px] overflow-hidden border-2 md:border-[3px] border-white shadow-xl cursor-pointer hover:scale-105 transition-transform">
+              <img
+                src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=300&q=80"
+                alt="Shoe Variant 2"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
-
-        {/* Decorative Background Elements */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white opacity-40 rounded-full blur-3xl z-0 pointer-events-none"></div>
       </div>
-    </div>
+    </Container>
   );
 }
