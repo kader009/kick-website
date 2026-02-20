@@ -3,6 +3,7 @@ import { Rubik } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/src/shared/Navbar';
 import Footer from '@/src/shared/Footer';
+import Providers from '@/src/provider/Provider';
 
 const rubik = Rubik({
   subsets: ['latin'],
@@ -11,7 +12,7 @@ const rubik = Rubik({
   preload: true,
 });
 
-export const metadata: Metadata = {   
+export const metadata: Metadata = {
   title: 'Kick',
   description: 'Kicks website',
 };
@@ -25,7 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${rubik.className} antialiased`}>
         <Navbar />
-        {children}
+        <Providers>{children}</Providers>
         <Footer />
       </body>
     </html>

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Container from './ui/Container';
 
 export default function Hero() {
@@ -13,10 +14,12 @@ export default function Hero() {
 
         {/* Hero Image Container */}
         <div className="relative w-full aspect-4/5 md:aspect-21/9 md:h-[700px] rounded-[48px] overflow-hidden bg-gray-200 shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
-          <img
-            src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=2000&q=80"
+          <Image
+            src="/heroimage1.png"
             alt="Nike Air Max"
             className="absolute inset-0 w-full h-full object-cover"
+            width={1920}
+            height={1080}
           />
 
           <div className="absolute inset-0 bg-black/10"></div>
@@ -54,14 +57,14 @@ export default function Hero() {
           <div className="absolute bottom-8 right-6 md:bottom-12 md:right-12 z-10 flex flex-col gap-3 md:gap-4">
             <div className="w-[70px] h-[70px] md:w-[120px] md:h-[120px] rounded-[16px] md:rounded-[24px] overflow-hidden border-2 md:border-[3px] border-white shadow-xl cursor-pointer hover:scale-105 transition-transform">
               <img
-                src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=300&q=80"
+                src="/heroimage2.png"
                 alt="Shoe Variant 1"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="w-[70px] h-[70px] md:w-[120px] md:h-[120px] rounded-[16px] md:rounded-[24px] overflow-hidden border-2 md:border-[3px] border-white shadow-xl cursor-pointer hover:scale-105 transition-transform">
               <img
-                src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=300&q=80"
+                src="/heroimage3.png"
                 alt="Shoe Variant 2"
                 className="w-full h-full object-cover"
               />
