@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/src/shared/Navbar';
 import Footer from '@/src/shared/Footer';
 import Providers from '@/src/provider/Provider';
+import { Toaster } from 'react-hot-toast';
 
 const rubik = Rubik({
   subsets: ['latin'],
@@ -25,9 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${rubik.className} antialiased`}>
-        <Navbar />
-        <Providers>{children}</Providers>
-        <Footer />
+        <Providers>
+          <Toaster position="top-center" />
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

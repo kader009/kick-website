@@ -1,14 +1,26 @@
 'use client';
 
 import { useParams } from 'next/navigation';
+import { useState } from 'react';
 import Image from 'next/image';
 import { useSingleProductQuery } from '@/src/redux/api/endApi';
 import Container from '@/src/components/ui/Container';
+import YouMayAlsoLike from '@/src/components/YouMayAlsoLike';
+import Link from 'next/link';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '@/src/redux/features/cartSlice';
+import toast from 'react-hot-toast';
 
 export default function ProductDetailsPage() {
   const params = useParams();
+  const dispatch = useDispatch();
   const { data: product, isLoading } = useSingleProductQuery(
     params.id as string,
+  );
+
+  const [selectedSize, setSelectedSize] = useState('38');
+  const [selectedColor, setSelectedColor] = useState(
+    'Shadow Navy / Army Green',
   );
 
   if (isLoading) {
@@ -27,6 +39,27 @@ export default function ProductDetailsPage() {
     );
   }
 
+  const handleAddToCart = () => {
+    dispatch(
+      addToCart({
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.images?.[0] || '',
+        color: selectedColor,
+        size: selectedSize,
+        quantity: 1,
+      }),
+    );
+    toast.success('Successfully added to bag!', {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    });
+  };
+
   return (
     <div className="min-h-screen pb-20">
       <Container className="pt-10">
@@ -34,7 +67,6 @@ export default function ProductDetailsPage() {
           {/* Left Side - Image Grid */}
           <div className="flex-1">
             <div className="grid grid-cols-2 gap-4 rounded-[32px] md:rounded-[48px] overflow-hidden bg-transparent">
-              {/* Array of 4 items, using existing images or repeating the first one to make exactly 4 */}
               {Array.from({ length: 4 }).map((_, index) => {
                 const imgUrl =
                   product.images?.[index] ||
@@ -71,18 +103,24 @@ export default function ProductDetailsPage() {
               ${product.price}.00
             </p>
 
-            {/* Color section (Mocked) */}
+            {/* Color section */}
             <div className="mb-8">
               <h3 className="font-bold text-sm uppercase mb-3">Color</h3>
               <div className="flex gap-2">
-                <div className="w-10 h-10 rounded-full bg-[#1C2638] border-2 border-black flex items-center justify-center cursor-pointer">
-                  <div className="w-8 h-8 rounded-full bg-[#1C2638] border border-white"></div>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-[#7C8873] cursor-pointer hover:opacity-80 transition-opacity"></div>
+                <button
+                  onClick={() => setSelectedColor('Shadow Navy / Army Green')}
+                  className={`w-10 h-10 rounded-full bg-[#1C2638] flex items-center justify-center cursor-pointer transition-all ${selectedColor === 'Shadow Navy / Army Green' ? 'ring-2 ring-offset-2 ring-black' : ''}`}
+                >
+                  <div className="w-8 h-8 rounded-full bg-[#1C2638] border border-white/20"></div>
+                </button>
+                <button
+                  onClick={() => setSelectedColor('Army Green')}
+                  className={`w-10 h-10 rounded-full bg-[#7C8873] cursor-pointer transition-all ${selectedColor === 'Army Green' ? 'ring-2 ring-offset-2 ring-black' : ''}`}
+                ></button>
               </div>
             </div>
 
-            {/* Size section (Mocked) */}
+            {/* Size section */}
             <div className="mb-8">
               <div className="flex justify-between items-end mb-3">
                 <h3 className="font-bold text-sm uppercase">Size</h3>
@@ -105,8 +143,9 @@ export default function ProductDetailsPage() {
                 ].map((size) => (
                   <button
                     key={size}
+                    onClick={() => setSelectedSize(size)}
                     className={`h-12 rounded-lg font-bold text-sm transition-colors ${
-                      size === '38'
+                      selectedSize === size
                         ? 'bg-[#232321] text-white'
                         : 'bg-white text-gray-500 hover:bg-gray-200'
                     }`}
@@ -119,7 +158,10 @@ export default function ProductDetailsPage() {
 
             {/* Action Buttons */}
             <div className="flex gap-4 mb-4">
-              <button className="flex-1 bg-[#232321] text-white hover:bg-black font-semibold py-4 rounded-xl uppercase text-sm transition-colors">
+              <button
+                onClick={handleAddToCart}
+                className="flex-1 bg-[#232321] text-white hover:bg-black font-semibold py-4 rounded-xl uppercase text-sm transition-colors"
+              >
                 ADD TO CART
               </button>
               <button className="w-14 h-14 bg-[#232321] text-white hover:bg-black rounded-xl flex items-center justify-center transition-colors">
@@ -138,18 +180,19 @@ export default function ProductDetailsPage() {
                 </svg>
               </button>
             </div>
-            <button className="w-full bg-[#4A69E2] text-white hover:bg-blue-600 font-semibold py-4 rounded-xl uppercase text-sm transition-colors mb-10 shadow-lg">
+            <Link
+              href="/cart"
+              className="w-full flex items-center justify-center bg-[#4A69E2] text-white hover:bg-blue-600 font-semibold py-4 rounded-xl uppercase text-sm transition-colors mb-10 shadow-lg"
+            >
               BUY IT NOW
-            </button>
+            </Link>
 
             {/* About Product */}
             <div>
               <h3 className="font-bold text-sm uppercase mb-2">
                 ABOUT THE PRODUCT
               </h3>
-              <p className="text-sm text-gray-500 mb-4">
-                Shadow Navy / Army Green
-              </p>
+              <p className="text-sm text-gray-500 mb-4">{selectedColor}</p>
 
               <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                 {product.description ||
@@ -170,6 +213,9 @@ export default function ProductDetailsPage() {
           </div>
         </div>
       </Container>
+
+      {/* Recommended products below details */}
+      <YouMayAlsoLike />
     </div>
   );
 }
