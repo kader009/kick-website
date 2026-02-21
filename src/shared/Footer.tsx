@@ -28,9 +28,20 @@ const Footer = () => {
               </button>
             </div>
           </div>
-          <span className="text-white text-6xl md:text-[120px] font-black tracking-tighter">
-            KICKS
-          </span>
+          <div className="relative flex items-start">
+            <Image
+              src="/Logo.png"
+              alt="KICKS"
+              width={250}
+              height={60}
+              className="w-[150px] md:w-[250px] brightness-0 invert"
+              style={{ filter: 'brightness(0) invert(1)' }}
+            />
+            {/* The orange + icon */}
+            <div className="absolute top-[-5px] right-[-15px] md:top-[-10px] md:right-[-20px] bg-[#FFA52F] text-white w-6 h-6 md:w-8 md:h-8 flex justify-center items-center rounded-full text-lg md:text-xl font-bold opacity-100 z-10">
+              <span className="leading-none mt-[-2px]">+</span>
+            </div>
+          </div>
         </div>
 
         {/* Dark Footer Section */}
@@ -156,13 +167,14 @@ const Footer = () => {
           </div>
 
           {/* Giant KICKS Logo - only top half visible */}
-          <div className="mt-8 w-full overflow-hidden h-[80px] md:h-[150px] z-20">
+          <div className="mt-8 w-full overflow-hidden h-[80px] md:h-[150px] z-20 flex justify-center">
             <Image
-              src="/logo.png"
+              src="/Logo.png"
               alt="KICKS"
               width={1262}
               height={313}
-              className="w-full object-cover object-top brightness-0 invert"
+              className="w-[150%] max-w-[150%] md:w-full md:max-w-none h-auto object-top brightness-0 invert"
+              style={{ filter: 'brightness(0) invert(1)' }}
             />
           </div>
         </div>

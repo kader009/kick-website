@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { Product } from '../types/productType';
 import Container from './ui/Container';
 import { useProductQuery } from '@/src/redux/api/endApi';
@@ -65,10 +66,13 @@ export default function NewDrops() {
                   {product.title}
                 </h3>
 
-                <button className="w-full bg-[#232321] text-white hover:bg-black font-semibold py-4 rounded-lg uppercase text-xs md:text-[14px] transition-colors">
+                <Link
+                  href={`/product/${product.id}`}
+                  className="w-full bg-[#232321] text-white hover:bg-black font-semibold py-4 rounded-lg uppercase text-xs md:text-[14px] transition-colors flex items-center justify-center gap-1"
+                >
                   VIEW PRODUCT -{' '}
                   <span className="text-[#FFA52F]">${product.price}</span>
-                </button>
+                </Link>
               </div>
             </div>
           ))}
