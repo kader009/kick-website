@@ -7,6 +7,7 @@ import YouMayAlsoLike from '@/src/components/YouMayAlsoLike';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/src/redux/store/store';
 import { removeFromCart, updateQuantity } from '@/src/redux/features/cartSlice';
+import toast from 'react-hot-toast';
 
 export default function CartPage() {
   const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -14,6 +15,13 @@ export default function CartPage() {
 
   const handleRemove = (id: number, size: string, color: string) => {
     dispatch(removeFromCart({ id, size, color }));
+    toast.error('Item removed from bag', {
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+    });
   };
 
   const handleUpdateQty = (
@@ -157,35 +165,6 @@ export default function CartPage() {
                                 <path d="m6 9 6 6 6-6" />
                               </svg>
                             </button>
-                            {/* Actual hidden controls for functionality */}
-                            <div className="flex gap-2 ml-2">
-                              <button
-                                onClick={() =>
-                                  handleUpdateQty(
-                                    item.id,
-                                    item.size,
-                                    item.color,
-                                    item.quantity - 1,
-                                  )
-                                }
-                                className="w-6 h-6 flex items-center justify-center bg-gray-100 rounded-md"
-                              >
-                                -
-                              </button>
-                              <button
-                                onClick={() =>
-                                  handleUpdateQty(
-                                    item.id,
-                                    item.size,
-                                    item.color,
-                                    item.quantity + 1,
-                                  )
-                                }
-                                className="w-6 h-6 flex items-center justify-center bg-gray-100 rounded-md"
-                              >
-                                +
-                              </button>
-                            </div>
                           </div>
                         </div>
 
