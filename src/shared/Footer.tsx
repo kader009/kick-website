@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="mt-16">
       <Container>
         {/* CTA Banner */}
-        <div className="bg-[#4A69E2] rounded-[32px] px-8 py-10 md:px-16 md:py-14 flex flex-col md:flex-row justify-between items-center gap-8 relative overflow-hidden z-10 h-[545px]">
+        <div className="bg-[#4A69E2] rounded-[48px] px-8 py-10 md:px-16 md:py-14 flex flex-col md:flex-row justify-between items-center gap-8 relative overflow-hidden z-10 h-[545px]">
           <div className="flex flex-col gap-4">
             <h2 className="text-white text-3xl md:text-[48px] font-black uppercase leading-none tracking-tight">
               JOIN OUR KICKSPLUS
@@ -45,7 +45,7 @@ const Footer = () => {
         </div>
 
         {/* Dark Footer Section */}
-        <div className="bg-[#232321] rounded-[32px] mt-[-100px] pt-16 pb-8 px-8 md:px-16 relative z-20">
+        <div className="bg-[#232321] rounded-[48px] mt-[-100px] pt-16 pb-8 px-8 md:px-16 relative z-20">
           {/* Links Section */}
           <div className="flex flex-col md:flex-row gap-10 md:gap-[128px]">
             {/* About Us */}

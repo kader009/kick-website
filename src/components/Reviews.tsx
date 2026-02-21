@@ -23,17 +23,16 @@ function StarRating({ rating }: { rating: number }) {
 
 export default function Reviews() {
   return (
-    <Container className="py-16 md:py-24">
+    <Container className="py-12 md:py-16">
       <div className="flex flex-col w-full">
         {/* Header */}
         <div className="flex justify-between items-center mb-8 md:mb-12">
           <h2
-            className="text-5xl md:text-[72px] font-black uppercase tracking-tighter text-[#232321]"
-            style={{ fontFamily: 'var(--font-rubik)' }}
+            className="text-[74px] font-semibold uppercase tracking-tighter text-[#232321]"
           >
             REVIEWS
           </h2>
-          <button className="bg-[#4A69E2] hover:bg-blue-600 text-white font-bold py-3 px-6 md:px-8 rounded-xl transition-all shadow-lg text-xs md:text-sm uppercase tracking-wide">
+          <button className="bg-[#4A69E2] hover:bg-blue-600 text-white font-medium py-3 px-6 md:px-8 rounded-[8px] text-[14px] md:text-[16px] uppercase tracking-wide">
             SEE ALL
           </button>
         </div>
@@ -43,7 +42,7 @@ export default function Reviews() {
           {REVIEWS.map((review) => (
             <div
               key={review.id}
-              className="bg-white rounded-[24px] overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow"
+              className="bg-white rounded-[32px] overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow"
             >
               {/* Review Info */}
               <div className="p-5 md:p-6 flex flex-col gap-2">
@@ -51,13 +50,13 @@ export default function Reviews() {
                   <div className="flex flex-col gap-1">
                     <h3
                       className="font-bold text-[#232321] text-lg md:text-xl"
-                      style={{ fontFamily: 'var(--font-rubik)' }}
                     >
                       {review.title}
                     </h3>
-                    <p className="text-gray-500 text-sm leading-snug">
-                      {review.description}
-                    </p>
+                    <p
+                      className="text-gray-500 text-sm leading-snug"
+                      dangerouslySetInnerHTML={{ __html: review.description }}
+                    />
                   </div>
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden shrink-0 ml-4">
                     <img
