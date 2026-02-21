@@ -23,8 +23,7 @@ export default function Categories() {
           {/* Header */}
           <div className="flex justify-between items-center mb-8 md:mb-12">
             <h2
-              className="text-5xl md:text-[76px] font-black uppercase tracking-tighter"
-              style={{ fontFamily: 'var(--font-rubik)' }}
+              className="text-[74px] font-semibold uppercase tracking-tighter"
             >
               CATEGORIES
             </h2>
@@ -65,7 +64,7 @@ export default function Categories() {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2">
             {CATEGORIES.map((category) => (
               <div
                 key={category.id}
@@ -84,7 +83,6 @@ export default function Categories() {
                 <div className="flex justify-between items-end z-10">
                   <h3
                     className="text-black text-2xl md:text-3xl font-bold uppercase w-1/2 leading-tight"
-                    style={{ fontFamily: 'var(--font-rubik)' }}
                   >
                     {category.name.split(' ').map((word, i) => (
                       <span key={i}>

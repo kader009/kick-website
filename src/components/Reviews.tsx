@@ -1,37 +1,5 @@
+import { REVIEWS } from '../data/reviewData';
 import Container from './ui/Container';
-
-const REVIEWS = [
-  {
-    id: 1,
-    title: 'Good Quality',
-    description: 'I highly recommend shopping from kicks',
-    rating: 5.0,
-    avatar:
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80',
-    image:
-      'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=600&q=80',
-  },
-  {
-    id: 2,
-    title: 'Good Quality',
-    description: 'I highly recommend shopping from kicks',
-    rating: 5.0,
-    avatar:
-      'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80',
-    image:
-      'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80',
-  },
-  {
-    id: 3,
-    title: 'Good Quality',
-    description: 'I highly recommend shopping from kicks',
-    rating: 5.0,
-    avatar:
-      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80',
-    image:
-      'https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=600&q=80',
-  },
-];
 
 function StarRating({ rating }: { rating: number }) {
   return (

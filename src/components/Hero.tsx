@@ -7,7 +7,8 @@ export default function Hero() {
       <div className="flex flex-col items-center mt-2 md:mt-8 mb-20 w-full relative z-0">
         {/* Title */}
         <h1
-          className="text-[223px] md:text-[180px] font-black uppercase leading-[0.85] text-[#232321] tracking-tighter text-center mb-6 md:mb-10 w-full"
+          className="font-bold uppercase leading-[0.85] text-[#232321] tracking-tighter text-center mb-6 md:mb-10 w-full whitespace-nowrap"
+          style={{ fontSize: 'clamp(80px, 14.5vw, 250px)' }}
         >
           DO IT <span className="text-[#4A69E2]">RIGHT</span>
         </h1>
@@ -40,15 +41,14 @@ export default function Hero() {
           {/* Bottom Left Content */}
           <div className="absolute bottom-8 left-6 md:bottom-16 md:left-16 z-10 flex flex-col gap-2 md:gap-3">
             <h2
-              className="text-white text-5xl md:text-[76px] font-black uppercase drop-shadow-xl tracking-tighter leading-none"
-              style={{ fontFamily: 'var(--font-rubik)' }}
+              className="text-white text-[74px] md:text-[76px] font-semibold uppercase tracking-tighter leading-none"
             >
               NIKE AIR MAX
             </h2>
-            <p className="text-white text-sm md:text-lg font-medium max-w-[280px] md:max-w-[360px] leading-snug drop-shadow-md">
+            <p className="text-[#E7E7E3] text-semibold text-[24px] md:text-lg font-medium max-w-[280px] md:max-w-[360px] leading-snug">
               Nike introducing the new air max for everyone's comfort
             </p>
-            <button className="bg-[#4A69E2] hover:bg-blue-600 text-white font-bold py-3 px-6 md:px-8 rounded-xl transition-all shadow-lg w-max mt-3 md:mt-4 text-xs md:text-sm uppercase tracking-wide">
+            <button className="bg-[#4A69E2] hover:bg-blue-600 text-white font-medium text-[14px] py-3 px-6 md:px-8 rounded-xl transition-all w-max mt-3 md:mt-4 md:text-sm uppercase tracking-wide">
               SHOP NOW
             </button>
           </div>
