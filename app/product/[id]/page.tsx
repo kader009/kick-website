@@ -45,6 +45,7 @@ export default function ProductDetailsPage() {
       addToCart({
         id: product.id,
         title: product.title,
+        description: product.description || '',
         price: product.price,
         image: product.images?.[0] || '',
         color: selectedColor,
@@ -63,7 +64,7 @@ export default function ProductDetailsPage() {
 
   return (
     <div className="min-h-screen">
-      <Container className="pt-[32px]">
+      <Container className="pt-[32px] mb-[128px]">
         <div className="flex flex-col lg:flex-row gap-[16px]">
           {/* Left Side - Image Gallery */}
           <div className="flex-1">

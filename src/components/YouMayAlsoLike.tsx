@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from '../types/productType';
@@ -8,22 +9,47 @@ import { useProductQuery } from '@/src/redux/api/endApi';
 
 export default function YouMayAlsoLike() {
   const { data: ProductData, isLoading } = useProductQuery(undefined);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Filter shoes category and take first 4 (using a different slice or the same for mock purposes)
-  const shoeProducts =
+  // Filter shoes category
+  const allShoes =
     ProductData?.filter(
       (product: Product) => product.category?.slug === 'shoes',
-    )?.slice(4, 8) || [];
+    ) || [];
+
+  // Determine items to show per page (Desktop: 4, Mobile: 2)
+  // For simplicity since it's a grid, we'll just slice based on currentIndex
+  const visibleProducts = allShoes.slice(currentIndex, currentIndex + 4);
+
+  const handleNext = () => {
+    if (currentIndex + 4 < allShoes.length) {
+      setCurrentIndex((prev) => prev + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1);
+    }
+  };
 
   return (
     <Container className="mb-8 mt-32">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-10 w-full">
-        <h1 className="text-[#232321] text-[48px] font-semibold leading-none tracking-tighter">
+      <div className="flex flex-row justify-between items-center mb-8 md:mb-10 w-full">
+        <h1 className="text-[#232321] text-[24px] md:text-[48px] font-semibold leading-none tracking-tighter uppercase">
           You may also like
         </h1>
 
-        <div className="flex gap-2 mt-6 md:mt-0">
-          <button className="w-10 h-10 md:w-12 md:h-12 bg-gray-400 rounded-[8px] flex items-center justify-center hover:bg-gray-500 transition-colors">
+        <div className="flex gap-2 shrink-0">
+          <button
+            onClick={handlePrev}
+            disabled={currentIndex === 0}
+            className={`w-10 h-10 md:w-12 md:h-12 rounded-[8px] flex items-center justify-center transition-colors ${
+              currentIndex === 0
+                ? 'bg-gray-200 cursor-not-allowed'
+                : 'bg-gray-400 hover:bg-gray-500'
+            }`}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -38,7 +64,15 @@ export default function YouMayAlsoLike() {
               <path d="m15 18-6-6 6-6" />
             </svg>
           </button>
-          <button className="w-10 h-10 md:w-12 md:h-12 bg-[#232321] text-white rounded-[8px] flex items-center justify-center hover:bg-black transition-colors">
+          <button
+            onClick={handleNext}
+            disabled={currentIndex + 4 >= allShoes.length}
+            className={`w-10 h-10 md:w-12 md:h-12 rounded-[8px] flex items-center justify-center transition-colors ${
+              currentIndex + 4 >= allShoes.length
+                ? 'bg-gray-200 cursor-not-allowed'
+                : 'bg-[#232321] text-white hover:bg-black'
+            }`}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -57,7 +91,7 @@ export default function YouMayAlsoLike() {
       </div>
 
       {isLoading ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 w-full">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="animate-pulse">
               <div className="aspect-square bg-gray-200 rounded-[24px] mb-4"></div>
@@ -67,8 +101,8 @@ export default function YouMayAlsoLike() {
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
-          {shoeProducts.map((product: Product) => (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 w-full">
+          {visibleProducts.map((product: Product) => (
             <div key={product.id} className="flex flex-col flex-1 group">
               <div className="relative aspect-square bg-[#F4F5F7] rounded-[24px] overflow-hidden mb-4 p-4 flex items-center justify-center">
                 {/* Product Image */}
@@ -107,12 +141,16 @@ export default function YouMayAlsoLike() {
         </div>
       )}
 
-      {/* Pagination indicators bottom */}
+      {/* Pagination indicators bottom - Always showing 4 dots and looping the active one */}
       <div className="flex justify-center gap-2 mt-12 w-full">
-        <div className="w-8 h-[4px] bg-[#4A69E2] rounded-full"></div>
-        <div className="w-8 h-[4px] bg-gray-300 rounded-full"></div>
-        <div className="w-8 h-[4px] bg-gray-300 rounded-full"></div>
-        <div className="w-8 h-[4px] bg-gray-300 rounded-full"></div>
+        {Array.from({ length: 4 }).map((_, i) => (
+          <div
+            key={i}
+            className={`w-8 h-[4px] rounded-full transition-colors ${
+              currentIndex % 4 === i ? 'bg-[#4A69E2]' : 'bg-[#232321]'
+            }`}
+          ></div>
+        ))}
       </div>
     </Container>
   );

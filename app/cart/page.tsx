@@ -8,6 +8,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/src/redux/store/store';
 import { removeFromCart, updateQuantity } from '@/src/redux/features/cartSlice';
 import toast from 'react-hot-toast';
+import { Open_Sans } from 'next/font/google';
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  display: 'swap',
+});
 
 export default function CartPage() {
   const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -28,9 +35,9 @@ export default function CartPage() {
     id: number,
     size: string,
     color: string,
-    q: number,
+    quantity: number,
   ) => {
-    dispatch(updateQuantity({ id, size, color, quantity: q }));
+    dispatch(updateQuantity({ id, size, color, quantity }));
   };
 
   const subtotal = cartItems.reduce(
@@ -41,23 +48,23 @@ export default function CartPage() {
   const total = subtotal + delivery;
 
   return (
-    <div className="min-h-screen pb-20 pt-10">
+    <div className="min-h-screen pb-20 mt-[32px]">
       <Container>
         {/* Banner Section */}
         <div className="mb-10">
-          <h2 className="text-3xl font-bold text-[#232321] mb-2">
+          <h2 className="text-[32px] font-semibold text-[#232321] mb-2">
             Saving to celebrate
           </h2>
-          <p className="text-gray-600 text-sm w-[782px]">
+          <p className="text-[#232321] text-[14px] w-[782px] font-semibold">
             Enjoy up to 60% off thousands of styles during the End of Year sale
             - while supplies last. No code needed.
           </p>
           <div className="flex gap-2 mt-2 text-sm">
-            <Link href="#" className="font-bold underline">
+            <Link href="#" className={`${openSans.className} font-semibold underline decoration-1 underline-offset-2 text-[16px]`}>
               Join us
             </Link>
             <span>or</span>
-            <Link href="#" className="font-bold underline">
+            <Link href="#" className={`${openSans.className} font-semibold underline decoration-1 underline-offset-2 text-[16px]`}>
               Sign-in
             </Link>
           </div>
@@ -67,22 +74,22 @@ export default function CartPage() {
           {/* Left Side - Your Bag */}
           <div className="flex-1">
             <div className="bg-white rounded-[24px] p-8 shadow-sm">
-              <h1 className="text-[32px] font-bold text-[#232321] mb-2 uppercase">
+              <h1 className="text-[32px] font-semibold text-[#232321] mb-2 capitalize">
                 Your Bag
               </h1>
-              <p className="text-gray-500 text-sm mb-8">
+              <p className={`${openSans.className} text-[#232321] text-[16px] mb-8 font-normal`}>
                 Items in your bag not reserved- check out now to make them
                 yours.
               </p>
 
               {cartItems.length === 0 ? (
                 <div className="py-10 text-center">
-                  <p className="text-gray-400 font-medium mb-6">
+                  <p className="text-[#232321] font-medium mb-6">
                     Your bag is empty.
                   </p>
                   <Link
                     href="/"
-                    className="bg-[#4A69E2] text-white px-8 py-3 rounded-xl font-bold uppercase transition-all"
+                    className="bg-[#4A69E2] text-white px-8 py-3 rounded-[8px] font-semibold capitalize transition-all"
                   >
                     Start Shopping
                   </Link>
@@ -99,9 +106,10 @@ export default function CartPage() {
                         <Image
                           src={item.image}
                           alt={item.title}
-                          fill
                           unoptimized
                           className="object-cover"
+                          width={207}
+                          height={225}
                         />
                       </div>
 
@@ -109,13 +117,13 @@ export default function CartPage() {
                       <div className="flex-1 flex flex-col justify-between">
                         <div className="flex justify-between items-start">
                           <div>
-                            <h3 className="text-xl font-black text-[#232321] uppercase leading-tight mb-2">
+                            <h3 className="text-xl font-semibold text-[#232321] uppercase leading-tight mb-2">
                               {item.title}
                             </h3>
-                            <p className="text-gray-500 font-medium mb-2">
-                              Men&apos;s Road Running Shoes
+                            <p className={`${openSans.className} text-[#232321] font-semibold mb-2 line-clamp-1 text-[20px]`}>
+                              {item.description}
                             </p>
-                            <p className="text-gray-500 font-medium">
+                            <p className={`${openSans.className} text-[#232321] font-semibold`}>
                               {item.color}
                             </p>
                           </div>
@@ -127,7 +135,9 @@ export default function CartPage() {
                         <div className="flex flex-wrap gap-4 mt-6">
                           {/* Size Selector Mock */}
                           <div className="flex items-center gap-2">
-                            <span className="text-gray-600 font-bold">
+                            <span
+                              className={`${openSans.className} text-[#232321] font-semibold text-[20px]`}
+                            >
                               Size {item.size}
                             </span>
                             <button className="text-gray-600">
@@ -148,7 +158,9 @@ export default function CartPage() {
                           </div>
                           {/* Quantity Selector Mock */}
                           <div className="flex items-center gap-2">
-                            <span className="text-gray-600 font-bold">
+                            <span
+                              className={`${openSans.className} text-[#232321] font-semibold text-[20px]`}
+                            >
                               Quantity {item.quantity}
                             </span>
                             <button className="text-gray-600">
@@ -218,38 +230,41 @@ export default function CartPage() {
 
           {/* Right Side - Order Summary */}
           <div className="w-full lg:w-[400px]">
-            <h2 className="text-[32px] font-bold text-[#232321] mb-8">
+            <h2 className="text-[32px] font-semibold text-[#232321] mb-[16px]">
               Order Summary
             </h2>
 
-            <div className="space-y-4 mb-8">
-              <div className="flex justify-between items-center text-lg">
-                <span className="font-bold uppercase">
+            <div className="space-y-4 mb-1">
+              <div className="flex justify-between items-center">
+                <span className="font-semibold text-[20px] uppercase">
                   {cartItems.reduce((acc, obj) => acc + obj.quantity, 0)} ITEM
                   {cartItems.length !== 1 ? 'S' : ''}
                 </span>
-                <span className="font-bold">${subtotal.toFixed(2)}</span>
+                <span className="font-semibold text-[20px]">${subtotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between items-center text-lg">
-                <span className="font-bold">Delivery</span>
-                <span className="font-bold">${delivery.toFixed(2)}</span>
+                <span className="font-semibold text-[20px]">Delivery</span>
+                <span className="font-semibold text-[20px]">${delivery.toFixed(2)}</span>
               </div>
-              <div className="flex justify-between items-center text-lg">
-                <span className="font-bold">Sales Tax</span>
-                <span className="font-bold">-</span>
+              <div className="flex justify-between items-center">
+                <span className="font-semibold text-[20px]">Sales Tax</span>
+                <span className="font-semibold text-[20px]">-</span>
               </div>
-              <div className="flex justify-between items-center text-xl pt-4">
-                <span className="font-black uppercase">Total</span>
-                <span className="font-black">${total.toFixed(2)}</span>
+              <div className="flex justify-between items-center text-xl pt-1">
+                <span className="font-semibold text-[24px] uppercase">Total</span>
+                <span className="font-semibold text-[24px]">${total.toFixed(2)}</span>
               </div>
             </div>
 
-            <button className="w-full bg-[#232321] text-white hover:bg-black font-bold py-5 rounded-xl uppercase text-sm tracking-widest transition-all mb-6">
+            <button className="w-full bg-[#232321] text-white hover:bg-black font-medium py-[16px] rounded-[8px] uppercase text-[14px] tracking-widest transition-all mb-[8px]">
               CHECKOUT
             </button>
 
-            <Link href="#" className="font-bold underline text-sm">
-              User a promo code
+            <Link
+              href="#"
+              className={`${openSans.className} font-semibold underline decoration-1 underline-offset-2 text-[16px]`}
+            >
+              Use a promo code
             </Link>
           </div>
         </div>
