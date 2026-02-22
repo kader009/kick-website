@@ -5,7 +5,11 @@ import { useCategoryQuery } from '../redux/api/endApi';
 import { Category } from '@/src/types/categoryType';
 
 export default function Categories() {
-  const { data: categoryData, isLoading } = useCategoryQuery(undefined);
+  const {
+    data: categoryData,
+    isLoading,
+    isError,
+  } = useCategoryQuery(undefined);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Filter categories and determine visible ones (showing 2 at a time)
@@ -31,6 +35,24 @@ export default function Categories() {
           <div className="h-12 w-64 bg-gray-700 rounded mb-4"></div>
           <div className="text-xl">Loading categories...</div>
         </div>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="bg-[#232321] text-white py-16 text-center">
+        <p className="text-xl text-red-400">
+          Failed to load categories. Please try again later.
+        </p>
+      </div>
+    );
+  }
+
+  if (allCategories.length === 0) {
+    return (
+      <div className="bg-[#232321] text-white py-16 text-center">
+        <p className="text-xl">No categories available at the moment.</p>
       </div>
     );
   }

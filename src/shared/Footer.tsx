@@ -1,15 +1,22 @@
 import Container from '@/src/components/ui/Container';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Open_Sans } from 'next/font/google';
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  display: 'swap',
+});
 
 const Footer = () => {
   return (
-    <footer className="mt-16">
+    <footer>
       <Container>
         {/* CTA Banner */}
-        <div className="bg-[#4A69E2] rounded-[48px] px-8 py-10 md:px-16 md:py-14 flex flex-col md:flex-row justify-between items-center gap-8 relative overflow-hidden z-10 h-[545px]">
+        <div className="bg-[#4A69E2] rounded-[48px] px-8 md:px-24 flex flex-col md:flex-row justify-around items-center gap-[200px] relative overflow-hidden z-10 pt-18 pb-32 md:pt-20 md:pb-40">
           <div className="flex flex-col gap-4">
-            <h2 className="text-white text-3xl md:text-[48px] font-black uppercase leading-none tracking-tight">
+            <h2 className="text-white text-[48px] font-semibold uppercase leading-none tracking-tight">
               JOIN OUR KICKSPLUS
               <br />
               CLUB &amp; GET 15% OFF
@@ -37,7 +44,7 @@ const Footer = () => {
               className="w-[150px] md:w-[250px] brightness-0 invert"
               style={{ filter: 'brightness(0) invert(1)' }}
             />
-            <div className="absolute top-[-5px] right-[-15px] md:top-[-10px] md:right-[-20px] bg-[#FFA52F] text-black w-6 h-6 md:w-8 md:h-8 flex justify-center items-center rounded-full text-lg md:text-xl font-bold opacity-100 z-10">
+            <div className="absolute top-[-10px] right-[-22px] md:top-[-20px] md:right-[-35px] bg-[#FFA52F] text-normal w-[26px] h-[26px] md:w-8 md:h-8 flex justify-center items-center rounded-full text-lg md:text-xl font-bold opacity-100 z-10">
               <span className="leading-none mt-[-2px]">+</span>
             </div>
           </div>
@@ -46,11 +53,15 @@ const Footer = () => {
         {/* Dark Footer Section */}
         <div className="bg-[#232321] rounded-[48px] mt-[-100px] pt-16 pb-0 px-8 md:px-16 relative z-20 overflow-hidden">
           {/* Links Section */}
-          <div className="flex flex-col md:flex-row gap-10 md:gap-[128px]">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-[128px]">
             {/* About Us */}
             <div className="flex flex-col gap-4 w-[446px]">
-              <h3 className="text-[#FFA52F] font-bold text-lg">About us</h3>
-              <p className="text-[#E7E7E3] text-sm leading-relaxed">
+              <h3 className="text-[#FFA52F] font-semibold text-[36px]">
+                About us
+              </h3>
+              <p
+                className={`${openSans.className} text-[#E7E7E3] text-[16px] font-semibold`}
+              >
                 We are the biggest hyperstore in the universe. <br /> We got you
                 all cover with our exclusive <br /> collections and latest
                 drops.
@@ -61,8 +72,12 @@ const Footer = () => {
             <div className="flex flex-col sm:flex-row gap-10 md:gap-[128px]">
               {/* Categories */}
               <div className="flex flex-col gap-4">
-                <h3 className="text-[#FFA52F] font-bold text-lg">Categories</h3>
-                <ul className="flex flex-col gap-2">
+                <h3 className="text-[#FFA52F] font-semibold text-[24px]">
+                  Categories
+                </h3>
+                <ul
+                  className={`${openSans.className} flex flex-col gap-2 text-[16px]`}
+                >
                   {[
                     'Runners',
                     'Sneakers',
@@ -74,7 +89,7 @@ const Footer = () => {
                     <li key={item}>
                       <Link
                         href="#"
-                        className="text-[#E7E7E3] text-sm hover:text-grey-600 transition-colors"
+                        className="text-[#E7E7E3] hover:text-grey-600 transition-colors text-[16px]"
                       >
                         {item}
                       </Link>
@@ -85,13 +100,15 @@ const Footer = () => {
 
               {/* Company */}
               <div className="flex flex-col gap-4">
-                <h3 className="text-[#FFA52F] font-bold text-lg">Company</h3>
-                <ul className="flex flex-col gap-2">
+                <h3 className="text-[#FFA52F] font-semibold text-[24px]">
+                  Company
+                </h3>
+                <ul className={`${openSans.className} flex flex-col gap-2`}>
                   {['About', 'Contact', 'Blogs'].map((item) => (
                     <li key={item}>
                       <Link
                         href="#"
-                        className="text-[#E7E7E3] text-sm hover:text-grey-600 transition-colors"
+                        className="text-[#E7E7E3] hover:text-grey-600 transition-colors text-[16px]"
                       >
                         {item}
                       </Link>
@@ -102,7 +119,9 @@ const Footer = () => {
 
               {/* Follow Us */}
               <div className="flex flex-col gap-4">
-                <h3 className="text-[#FFA52F] font-bold text-lg">Follow us</h3>
+                <h3 className="text-[#FFA52F] font-semibold text-[24px]">
+                  Follow us
+                </h3>
                 <div className="flex gap-4">
                   <Link
                     href="#"
@@ -188,7 +207,11 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="text-center py-6">
-        <p className="text-gray-500 text-xs">&copy; All rights reserved</p>
+        <p
+          className={`${openSans.className} text-[#232321] text-[16px] font-normal`}
+        >
+          &copy; All rights reserved
+        </p>
       </div>
     </footer>
   );

@@ -26,7 +26,7 @@ export default function Reviews() {
     <Container className="py-12 md:py-16">
       <div className="flex flex-col w-full">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8 md:mb-12">
+        <div className="flex justify-between items-center mb-[48px]">
           <h2
             className="text-[74px] font-semibold uppercase tracking-tighter text-[#232321]"
           >

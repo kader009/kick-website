@@ -8,7 +8,7 @@ import Container from './ui/Container';
 import { useProductQuery } from '@/src/redux/api/endApi';
 
 export default function YouMayAlsoLike() {
-  const { data: ProductData, isLoading } = useProductQuery(undefined);
+  const { data: ProductData, isLoading, isError } = useProductQuery(undefined);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Filter shoes category
@@ -99,6 +99,18 @@ export default function YouMayAlsoLike() {
               <div className="h-12 bg-gray-200 rounded-lg"></div>
             </div>
           ))}
+        </div>
+      ) : isError ? (
+        <div className="py-10 text-center w-full">
+          <p className="text-xl text-red-500 font-semibold">
+            Failed to load recommendations.
+          </p>
+        </div>
+      ) : visibleProducts.length === 0 ? (
+        <div className="py-10 text-center w-full">
+          <p className="text-xl text-[#232321] font-semibold">
+            No similar products found.
+          </p>
         </div>
       ) : (
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 w-full">

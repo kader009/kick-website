@@ -7,7 +7,7 @@ import Container from './ui/Container';
 import { useProductQuery } from '@/src/redux/api/endApi';
 
 export default function NewDrops() {
-  const { data: ProductData, isLoading } = useProductQuery(undefined);
+  const { data: ProductData, isLoading, isError } = useProductQuery(undefined);
 
   // Filter shoes category and take first 4
   const shoeProducts =
@@ -38,6 +38,18 @@ export default function NewDrops() {
               <div className="h-12 bg-gray-200 rounded-lg"></div>
             </div>
           ))}
+        </div>
+      ) : isError ? (
+        <div className="py-10 text-center w-full">
+          <p className="text-xl text-red-500 font-semibold">
+            Failed to load new drops. Please try again.
+          </p>
+        </div>
+      ) : shoeProducts.length === 0 ? (
+        <div className="py-10 text-center w-full">
+          <p className="text-xl text-[#232321] font-semibold">
+            No new drops available in this category.
+          </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
