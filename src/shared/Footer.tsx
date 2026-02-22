@@ -30,28 +30,27 @@ const Footer = () => {
           </div>
           <div className="relative flex items-start">
             <Image
-              src="/Logo.png"
+              src="/footer1.svg"
               alt="KICKS"
-              width={250}
-              height={60}
+              width={351}
+              height={88}
               className="w-[150px] md:w-[250px] brightness-0 invert"
               style={{ filter: 'brightness(0) invert(1)' }}
             />
-            {/* The orange + icon */}
-            <div className="absolute top-[-5px] right-[-15px] md:top-[-10px] md:right-[-20px] bg-[#FFA52F] text-white w-6 h-6 md:w-8 md:h-8 flex justify-center items-center rounded-full text-lg md:text-xl font-bold opacity-100 z-10">
+            <div className="absolute top-[-5px] right-[-15px] md:top-[-10px] md:right-[-20px] bg-[#FFA52F] text-black w-6 h-6 md:w-8 md:h-8 flex justify-center items-center rounded-full text-lg md:text-xl font-bold opacity-100 z-10">
               <span className="leading-none mt-[-2px]">+</span>
             </div>
           </div>
         </div>
 
         {/* Dark Footer Section */}
-        <div className="bg-[#232321] rounded-[48px] mt-[-100px] pt-16 pb-8 px-8 md:px-16 relative z-20">
+        <div className="bg-[#232321] rounded-[48px] mt-[-100px] pt-16 pb-0 px-8 md:px-16 relative z-20 overflow-hidden">
           {/* Links Section */}
           <div className="flex flex-col md:flex-row gap-10 md:gap-[128px]">
             {/* About Us */}
             <div className="flex flex-col gap-4 w-[446px]">
               <h3 className="text-[#FFA52F] font-bold text-lg">About us</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-[#E7E7E3] text-sm leading-relaxed">
                 We are the biggest hyperstore in the universe. <br /> We got you
                 all cover with our exclusive <br /> collections and latest
                 drops.
@@ -75,7 +74,7 @@ const Footer = () => {
                     <li key={item}>
                       <Link
                         href="#"
-                        className="text-gray-400 text-sm hover:text-white transition-colors"
+                        className="text-[#E7E7E3] text-sm hover:text-grey-600 transition-colors"
                       >
                         {item}
                       </Link>
@@ -92,7 +91,7 @@ const Footer = () => {
                     <li key={item}>
                       <Link
                         href="#"
-                        className="text-gray-400 text-sm hover:text-white transition-colors"
+                        className="text-[#E7E7E3] text-sm hover:text-grey-600 transition-colors"
                       >
                         {item}
                       </Link>
@@ -166,21 +165,28 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Giant KICKS Logo - only top half visible */}
-          <div className="mt-8 w-full overflow-hidden h-[80px] md:h-[150px] z-20 flex justify-center">
+          <div
+            className="mt-16 w-full overflow-hidden"
+            style={{
+              height: 'clamp(60px, 12.5vw, 200px)',
+            }}
+          >
             <Image
-              src="/Logo.png"
+              src="/footer.svg"
               alt="KICKS"
-              width={1262}
-              height={313}
-              className="w-[150%] max-w-[150%] md:w-full md:max-w-none h-auto object-top brightness-0 invert"
+              width={3840}
+              height={960}
+              quality={100}
+              priority
+              unoptimized
+              className="w-full max-w-none h-auto brightness-0 invert block"
               style={{ filter: 'brightness(0) invert(1)' }}
             />
           </div>
         </div>
       </Container>
 
-      {/* Copyright - outside container, at very bottom */}
+      {/* Copyright */}
       <div className="text-center py-6">
         <p className="text-gray-500 text-xs">&copy; All rights reserved</p>
       </div>

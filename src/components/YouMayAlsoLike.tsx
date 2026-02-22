@@ -16,7 +16,7 @@ export default function YouMayAlsoLike() {
     )?.slice(4, 8) || [];
 
   return (
-    <Container className="mb-20 mt-32">
+    <Container className="mb-8 mt-32">
       <div className="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-10 w-full">
         <h2 className="text-[#232321] text-[40px] md:text-[56px] font-black leading-none tracking-tighter">
           You may also like
@@ -70,7 +70,7 @@ export default function YouMayAlsoLike() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
           {shoeProducts.map((product: Product) => (
             <div key={product.id} className="flex flex-col flex-1 group">
-              <div className="relative aspect-square bg-white border-2 border-transparent hover:border-gray-100 rounded-[24px] overflow-hidden mb-4 p-4 flex items-center justify-center transition-all">
+              <div className="relative aspect-square bg-[#F4F5F7] rounded-[24px] overflow-hidden mb-4 p-4 flex items-center justify-center">
                 {/* Product Image */}
                 <div className="w-full h-full relative flex items-center justify-center rounded-[24px] p-[4px]">
                   {/* "New" Badge */}
@@ -89,7 +89,7 @@ export default function YouMayAlsoLike() {
 
               {/* Product Details */}
               <div className="flex flex-col mt-2">
-                <h3 className="font-bold text-[#232321] text-[16px] md:text-[18px] leading-[1.2] uppercase mb-4 line-clamp-2">
+                <h3 className="font-bold text-[#232321] text-[16px] md:text-[20px] leading-[1.2] uppercase mb-4 line-clamp-2">
                   {product.title}
                 </h3>
 

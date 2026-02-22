@@ -20,11 +20,35 @@ export default function Navbar() {
               <Link href="#" className="hover:text-blue-600 transition">
                 New Drops 🔥
               </Link>
-              <Link href="#" className="hover:text-blue-600 transition">
+              <Link
+                href="#"
+                className="hover:text-blue-600 transition flex items-center gap-1"
+              >
                 Men
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 16l-6-6h12z" />
+                </svg>
               </Link>
-              <Link href="#" className="hover:text-blue-600 transition">
+              <Link
+                href="#"
+                className="hover:text-blue-600 transition flex items-center gap-1"
+              >
                 Women
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 16l-6-6h12z" />
+                </svg>
               </Link>
             </div>
 
@@ -76,7 +100,7 @@ export default function Navbar() {
                 href="/cart"
                 className="text-gray-800 hover:text-blue-600 transition relative"
               >
-                <span className="bg-[#FFA52F] text-white text-[10px] font-bold w-[32px] h-[32px] rounded-full flex items-center justify-center">
+                <span className="bg-[#FFA52F] text-black text-[16px] font-bold w-[32px] h-[32px] rounded-full flex items-center justify-center">
                   {totalItems}
                 </span>
               </Link>

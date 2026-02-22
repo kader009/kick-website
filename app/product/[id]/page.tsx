@@ -61,23 +61,25 @@ export default function ProductDetailsPage() {
   };
 
   return (
-    <div className="min-h-screen pb-20">
-      <Container className="pt-10">
-        <div className="flex flex-col lg:flex-row gap-10">
+    <div className="min-h-screen">
+      <Container className="pt-[32px]">
+        <div className="flex flex-col lg:flex-row gap-[16px]">
           {/* Left Side - Image Grid */}
           <div className="flex-1">
             <div className="grid grid-cols-2 gap-4 rounded-[32px] md:rounded-[48px] overflow-hidden bg-transparent">
               {Array.from({ length: 4 }).map((_, index) => {
                 const imgUrl =
-                  product.images?.[index] ||
-                  product.images?.[0] ||
+                  product?.images?.[index] ||
+                  product?.images?.[0] ||
                   'https://placehold.co/600x600';
                 return (
                   <div
                     key={index}
                     className="bg-[#ECEEF0] w-full flex items-center justify-center aspect-429/510"
                   >
-                    <img
+                    <Image
+                      width={429}
+                      height={510}
                       src={imgUrl}
                       alt={`${product.title} image`}
                       className="w-full h-full object-cover"
@@ -89,23 +91,23 @@ export default function ProductDetailsPage() {
           </div>
 
           {/* Right Side - Details */}
-          <div className="w-full lg:w-[450px] xl:w-[500px] flex flex-col pt-4">
+          <div className="w-full lg:w-[450px] xl:w-[500px] flex flex-col">
             {/* New Release Badge */}
-            <div className="bg-[#4A69E2] text-white text-xs font-bold px-4 py-2 rounded-lg w-max mb-6">
+            <div className="bg-[#4A69E2] text-white text-[12px] font-semibold px-4 py-2 rounded-[12px] w-max mb-[16px]">
               New Release
             </div>
 
             {/* Title & Price */}
-            <h1 className="text-[32px] md:text-[40px] font-black uppercase leading-tight text-[#232321] mb-4">
+            <h1 className="text-[32px] font-semibold uppercase leading-tight text-[#232321] mb-[16px]">
               {product.title}
             </h1>
-            <p className="text-[#4A69E2] text-2xl font-bold mb-8">
+            <p className="text-[#4A69E2] text-[24px] font-semibold mb-[16px]">
               ${product.price}.00
             </p>
 
             {/* Color section */}
-            <div className="mb-8">
-              <h3 className="font-bold text-sm uppercase mb-3">Color</h3>
+            <div className="mb-[16px]">
+              <h3 className="font-semibold text-[16px] uppercase mb-[16px]">Color</h3>
               <div className="flex gap-2">
                 <button
                   onClick={() => setSelectedColor('Shadow Navy / Army Green')}
@@ -121,14 +123,14 @@ export default function ProductDetailsPage() {
             </div>
 
             {/* Size section */}
-            <div className="mb-8">
-              <div className="flex justify-between items-end mb-3">
-                <h3 className="font-bold text-sm uppercase">Size</h3>
-                <span className="text-xs font-bold underline cursor-pointer hover:text-[#4A69E2]">
+            <div className="mb-[16px]">
+              <div className="flex justify-between items-end mb-[16px]">
+                <h3 className="font-semibold text-[16px] uppercase">Size</h3>
+                <span className="text-[16px] font-semibold underline cursor-pointer hover:text-[#4A69E2]">
                   SIZE CHART
                 </span>
               </div>
-              <div className="grid grid-cols-5 gap-2">
+              <div className="grid grid-cols-5 gap-[4px] mb-[32px]">
                 {[
                   '38',
                   '39',
@@ -160,11 +162,11 @@ export default function ProductDetailsPage() {
             <div className="flex gap-4 mb-4">
               <button
                 onClick={handleAddToCart}
-                className="flex-1 bg-[#232321] text-white hover:bg-black font-semibold py-4 rounded-xl uppercase text-sm transition-colors"
+                className="flex-1 bg-[#232321] text-white hover:bg-black font-medium py-4 rounded-[8px] uppercase text-[14px] transition-colors cursor-pointer"
               >
                 ADD TO CART
               </button>
-              <button className="w-14 h-14 bg-[#232321] text-white hover:bg-black rounded-xl flex items-center justify-center transition-colors">
+              <button className="w-14 h-14 bg-[#232321] text-white hover:bg-black rounded-[8px] flex items-center justify-center transition-colors cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -182,24 +184,24 @@ export default function ProductDetailsPage() {
             </div>
             <Link
               href="/cart"
-              className="w-full flex items-center justify-center bg-[#4A69E2] text-white hover:bg-blue-600 font-semibold py-4 rounded-xl uppercase text-sm transition-colors mb-10 shadow-lg"
+              className="w-full flex items-center justify-center bg-[#4A69E2] text-white hover:bg-blue-600 font-medium py-4 rounded-[8px] uppercase text-[14px] transition-colors mb-[32px] cursor-pointer"
             >
               BUY IT NOW
             </Link>
 
             {/* About Product */}
             <div>
-              <h3 className="font-bold text-sm uppercase mb-2">
+              <h3 className="font-semibold text-[16px] uppercase mb-[8px]">
                 ABOUT THE PRODUCT
               </h3>
-              <p className="text-sm text-gray-500 mb-4">{selectedColor}</p>
+              <p className="text-sm text-[#232321] mb-4">{selectedColor}</p>
 
-              <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+              <p className="text-[#232321] text-[16px] mb-4 leading-relaxed">
                 {product.description ||
                   'This product is excluded from all promotional discounts and offers.'}
               </p>
 
-              <ul className="text-sm text-gray-600 list-disc pl-5 space-y-2">
+              <ul className="text-[16px] text-[#232321] list-disc pl-5 space-y-2">
                 <li>
                   Pay over time in interest-free installments with Affirm,
                   Klarna or Afterpay.

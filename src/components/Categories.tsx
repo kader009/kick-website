@@ -1,12 +1,12 @@
 'use client';
 
 import { useCategoryQuery } from '../redux/api/endApi';
+import { Category } from '@/src/types/categoryType';
 
 export default function Categories() {
   const { data: categoryData, isLoading } = useCategoryQuery(undefined);
-
   // Take first 2 categories from API
-  const categories = categoryData?.slice(0, 2) || [];
+  const categories: Category[] = categoryData?.slice(0, 2) || [];
 
   if (isLoading) {
     return (
@@ -66,11 +66,11 @@ export default function Categories() {
       {/* Full Width Grid touching right edge */}
       <div className="pl-4 sm:pl-6 lg:pl-16">
         <div className="grid grid-cols-1 md:grid-cols-2 w-full">
-          {categories.map((category: any, index: number) => (
+          {categories.map((category: Category, index: number) => (
             <div
               key={category.id}
-              className={`bg-[#F4F5F7] py-12 px-8 flex flex-col justify-between group cursor-pointer h-[400px] md:h-[600px] relative transition-all duration-300
-                ${index === 0 ? 'rounded-tl-[64px]' : ''}
+              className={`py-12 px-8 flex flex-col justify-between group cursor-pointer h-[400px] md:h-[600px] relative transition-all duration-300
+                ${index === 0 ? 'bg-[#ECEEF0] rounded-tl-[64px]' : 'bg-[#F6F6F6]'}
               `}
             >
               {/* Product Image */}
@@ -84,12 +84,8 @@ export default function Categories() {
 
               {/* Bottom Content */}
               <div className="flex justify-between items-end z-10">
-                <h3 className="text-[#232321] text-2xl md:text-[32px] font-bold uppercase leading-[1.1] tracking-tight">
-                  {category.name.split(' ').map((word: string, i: number) => (
-                    <span key={i} className="block">
-                      {word}
-                    </span>
-                  ))}
+                <h3 className="text-[#232321] text-2xl md:text-[32px] font-bold uppercase leading-[1.1] tracking-tight max-w-[180px]">
+                  {category.name}
                 </h3>
 
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-[#232321] rounded-lg flex items-center justify-center group-hover:bg-[#4A69E2] transition-colors">

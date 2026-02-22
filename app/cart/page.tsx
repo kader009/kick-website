@@ -48,7 +48,7 @@ export default function CartPage() {
           <h2 className="text-3xl font-bold text-[#232321] mb-2">
             Saving to celebrate
           </h2>
-          <p className="text-gray-600 text-sm max-w-[600px]">
+          <p className="text-gray-600 text-sm w-[782px]">
             Enjoy up to 60% off thousands of styles during the End of Year sale
             - while supplies last. No code needed.
           </p>
