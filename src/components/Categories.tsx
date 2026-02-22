@@ -1,12 +1,28 @@
 'use client';
 
+import { useState } from 'react';
 import { useCategoryQuery } from '../redux/api/endApi';
 import { Category } from '@/src/types/categoryType';
 
 export default function Categories() {
   const { data: categoryData, isLoading } = useCategoryQuery(undefined);
-  // Take first 2 categories from API
-  const categories: Category[] = categoryData?.slice(0, 2) || [];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Filter categories and determine visible ones (showing 2 at a time)
+  const allCategories: Category[] = categoryData || [];
+  const visibleCategories = allCategories.slice(currentIndex, currentIndex + 2);
+
+  const handleNext = () => {
+    if (currentIndex + 2 < allCategories.length) {
+      setCurrentIndex((prev) => prev + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1);
+    }
+  };
 
   if (isLoading) {
     return (
@@ -29,7 +45,15 @@ export default function Categories() {
 
           {/* Navigation Arrows */}
           <div className="flex gap-2">
-            <button className="w-10 h-10 md:w-12 md:h-12 bg-gray-500 rounded-lg flex items-center justify-center hover:bg-gray-400 transition-colors">
+            <button
+              onClick={handlePrev}
+              disabled={currentIndex === 0}
+              className={`w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center transition-colors ${
+                currentIndex === 0
+                  ? 'bg-gray-700 cursor-not-allowed text-gray-400'
+                  : 'bg-gray-500 hover:bg-gray-400 text-white'
+              }`}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -44,7 +68,15 @@ export default function Categories() {
                 <path d="m15 18-6-6 6-6" />
               </svg>
             </button>
-            <button className="w-10 h-10 md:w-12 md:h-12 bg-white text-black rounded-lg flex items-center justify-center hover:bg-gray-200 transition-colors">
+            <button
+              onClick={handleNext}
+              disabled={currentIndex + 2 >= allCategories.length}
+              className={`w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center transition-colors ${
+                currentIndex + 2 >= allCategories.length
+                  ? 'bg-gray-700 cursor-not-allowed text-gray-400'
+                  : 'bg-white text-black hover:bg-gray-200'
+              }`}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -65,8 +97,8 @@ export default function Categories() {
 
       {/* Full Width Grid touching right edge */}
       <div className="pl-4 sm:pl-6 lg:pl-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 w-full">
-          {categories.map((category: Category, index: number) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-4 md:gap-0">
+          {visibleCategories.map((category: Category, index: number) => (
             <div
               key={category.id}
               className={`py-12 px-8 flex flex-col justify-between group cursor-pointer h-[400px] md:h-[600px] relative transition-all duration-300

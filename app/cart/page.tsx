@@ -48,14 +48,14 @@ export default function CartPage() {
   const total = subtotal + delivery;
 
   return (
-    <div className="min-h-screen pb-20 mt-[32px]">
+    <div className="min-h-screen mt-[32px]">
       <Container>
         {/* Banner Section */}
         <div className="mb-10">
           <h2 className="text-[32px] font-semibold text-[#232321] mb-2">
             Saving to celebrate
           </h2>
-          <p className="text-[#232321] text-[14px] w-[782px] font-semibold">
+          <p className={`${openSans.className} text-[#232321] text-[14px] w-[782px] font-semibold`}>
             Enjoy up to 60% off thousands of styles during the End of Year sale
             - while supplies last. No code needed.
           </p>
@@ -73,7 +73,7 @@ export default function CartPage() {
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Left Side - Your Bag */}
           <div className="flex-1">
-            <div className="bg-white rounded-[24px] p-8 shadow-sm">
+            <div className="bg-white rounded-[24px] p-8">
               <h1 className="text-[32px] font-semibold text-[#232321] mb-2 capitalize">
                 Your Bag
               </h1>
