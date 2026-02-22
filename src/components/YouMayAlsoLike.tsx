@@ -18,12 +18,12 @@ export default function YouMayAlsoLike() {
   return (
     <Container className="mb-8 mt-32">
       <div className="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-10 w-full">
-        <h2 className="text-[#232321] text-[40px] md:text-[56px] font-black leading-none tracking-tighter">
+        <h1 className="text-[#232321] text-[48px] font-semibold leading-none tracking-tighter">
           You may also like
-        </h2>
+        </h1>
 
         <div className="flex gap-2 mt-6 md:mt-0">
-          <button className="w-10 h-10 md:w-12 md:h-12 bg-gray-400 rounded-lg flex items-center justify-center hover:bg-gray-500 transition-colors">
+          <button className="w-10 h-10 md:w-12 md:h-12 bg-gray-400 rounded-[8px] flex items-center justify-center hover:bg-gray-500 transition-colors">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -38,7 +38,7 @@ export default function YouMayAlsoLike() {
               <path d="m15 18-6-6 6-6" />
             </svg>
           </button>
-          <button className="w-10 h-10 md:w-12 md:h-12 bg-[#232321] text-white rounded-lg flex items-center justify-center hover:bg-black transition-colors">
+          <button className="w-10 h-10 md:w-12 md:h-12 bg-[#232321] text-white rounded-[8px] flex items-center justify-center hover:bg-black transition-colors">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

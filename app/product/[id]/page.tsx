@@ -22,6 +22,7 @@ export default function ProductDetailsPage() {
   const [selectedColor, setSelectedColor] = useState(
     'Shadow Navy / Army Green',
   );
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   if (isLoading) {
     return (
@@ -64,9 +65,10 @@ export default function ProductDetailsPage() {
     <div className="min-h-screen">
       <Container className="pt-[32px]">
         <div className="flex flex-col lg:flex-row gap-[16px]">
-          {/* Left Side - Image Grid */}
+          {/* Left Side - Image Gallery */}
           <div className="flex-1">
-            <div className="grid grid-cols-2 gap-4 rounded-[32px] md:rounded-[48px] overflow-hidden bg-transparent">
+            {/* Desktop View - 2x2 Grid (Visible on md and up) */}
+            <div className="hidden md:grid grid-cols-2 gap-4 rounded-[48px] overflow-hidden bg-transparent">
               {Array.from({ length: 4 }).map((_, index) => {
                 const imgUrl =
                   product?.images?.[index] ||
@@ -75,7 +77,7 @@ export default function ProductDetailsPage() {
                 return (
                   <div
                     key={index}
-                    className="bg-[#ECEEF0] w-full flex items-center justify-center aspect-429/510"
+                    className="w-full flex items-center justify-center aspect-429/510 rounded-[16px] overflow-hidden"
                   >
                     <Image
                       width={429}
@@ -83,11 +85,70 @@ export default function ProductDetailsPage() {
                       src={imgUrl}
                       unoptimized
                       alt={`${product.title} image`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover rounded-[16px]"
                     />
                   </div>
                 );
               })}
+            </div>
+
+            {/* Mobile View - Slider style (Visible on small devices) */}
+            <div className="md:hidden flex flex-col gap-4">
+              {/* Main Image Container */}
+              <div className="w-full max-w-[358px] aspect-[358/273] mx-auto rounded-[16px] overflow-hidden relative">
+                <Image
+                  width={358}
+                  height={273}
+                  src={
+                    product?.images?.[activeImageIndex] ||
+                    product?.images?.[0] ||
+                    ''
+                  }
+                  unoptimized
+                  alt={`${product.title} main image`}
+                  className="w-full h-full object-contain rounded-[16px]"
+                />
+
+                {/* Pagination Dots - Positioned 14px from bottom */}
+                <div className="absolute bottom-[14px] left-1/2 -translate-x-1/2 flex gap-2">
+                  {Array.from({ length: 4 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className={`w-2 h-2 rounded-full transition-colors ${
+                        activeImageIndex === i ? 'bg-[#4A69E2]' : 'bg-[#BCBCBC]'
+                      }`}
+                    ></div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Thumbnails Row */}
+              <div className="flex justify-center gap-4 px-2 mt-2">
+                {Array.from({ length: 4 }).map((_, index) => {
+                  const imgUrl =
+                    product?.images?.[index] || product?.images?.[0] || '';
+                  return (
+                    <div
+                      key={index}
+                      onClick={() => setActiveImageIndex(index)}
+                      className={`w-[64px] h-[64px] rounded-[8px] flex items-center justify-center cursor-pointer transition-all ${
+                        activeImageIndex === index
+                          ? 'ring-2 ring-[#4A69E2] scale-105'
+                          : 'opacity-100 hover:scale-105'
+                      }`}
+                    >
+                      <Image
+                        width={64}
+                        height={64}
+                        src={imgUrl}
+                        unoptimized
+                        alt={`thumb ${index}`}
+                        className="w-full h-full object-contain rounded-[8px]"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
@@ -149,10 +210,12 @@ export default function ProductDetailsPage() {
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`h-12 rounded-lg font-bold text-sm transition-colors ${
+                    className={`h-12 rounded-lg font-bold text-sm transition-colors cursor-pointer ${
                       selectedSize === size
                         ? 'bg-[#232321] text-white'
-                        : 'bg-white text-gray-500 hover:bg-gray-200'
+                        : size === '39' || size === '40'
+                          ? 'bg-[#D2D1D3] text-gray-500'
+                          : 'bg-white text-gray-500 hover:bg-gray-200'
                     }`}
                   >
                     {size}
