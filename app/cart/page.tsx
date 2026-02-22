@@ -100,6 +100,7 @@ export default function CartPage() {
                           src={item.image}
                           alt={item.title}
                           fill
+                          unoptimized
                           className="object-cover"
                         />
                       </div>

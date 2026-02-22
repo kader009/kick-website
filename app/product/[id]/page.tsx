@@ -81,6 +81,7 @@ export default function ProductDetailsPage() {
                       width={429}
                       height={510}
                       src={imgUrl}
+                      unoptimized
                       alt={`${product.title} image`}
                       className="w-full h-full object-cover"
                     />
@@ -107,7 +108,9 @@ export default function ProductDetailsPage() {
 
             {/* Color section */}
             <div className="mb-[16px]">
-              <h3 className="font-semibold text-[16px] uppercase mb-[16px]">Color</h3>
+              <h3 className="font-semibold text-[16px] uppercase mb-[16px]">
+                Color
+              </h3>
               <div className="flex gap-2">
                 <button
                   onClick={() => setSelectedColor('Shadow Navy / Army Green')}

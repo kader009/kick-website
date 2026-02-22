@@ -53,6 +53,7 @@ export default function NewDrops() {
                   <Image
                     src={product?.images?.[0] || ''}
                     alt={product?.title}
+                    unoptimized
                     className="w-full h-full object-cover rounded-[24px]"
                     width={302}
                     height={334}
