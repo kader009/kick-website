@@ -73,7 +73,7 @@ export default function Categories() {
               className={`w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center transition-colors ${
                 currentIndex === 0
                   ? 'bg-gray-700 cursor-not-allowed text-gray-400'
-                  : 'bg-gray-500 hover:bg-gray-400 text-white'
+                  : 'bg-gray-500 hover:bg-gray-400 text-white cursor-pointer'
               }`}
             >
               <svg
@@ -96,7 +96,7 @@ export default function Categories() {
               className={`w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center transition-colors ${
                 currentIndex + 2 >= allCategories.length
                   ? 'bg-gray-700 cursor-not-allowed text-gray-400'
-                  : 'bg-white text-black hover:bg-gray-200'
+                  : 'bg-white text-black hover:bg-gray-200 cursor-pointer'
               }`}
             >
               <svg

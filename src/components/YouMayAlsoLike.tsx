@@ -47,7 +47,7 @@ export default function YouMayAlsoLike() {
             className={`w-10 h-10 md:w-12 md:h-12 rounded-[8px] flex items-center justify-center transition-colors ${
               currentIndex === 0
                 ? 'bg-gray-200 cursor-not-allowed'
-                : 'bg-gray-400 hover:bg-gray-500'
+                : 'bg-gray-400 hover:bg-gray-500 cursor-pointer'
             }`}
           >
             <svg
@@ -70,7 +70,7 @@ export default function YouMayAlsoLike() {
             className={`w-10 h-10 md:w-12 md:h-12 rounded-[8px] flex items-center justify-center transition-colors ${
               currentIndex + 4 >= allShoes.length
                 ? 'bg-gray-200 cursor-not-allowed'
-                : 'bg-[#232321] text-white hover:bg-black'
+                : 'bg-[#232321] text-white hover:bg-black cursor-pointer'
             }`}
           >
             <svg

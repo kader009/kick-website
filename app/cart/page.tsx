@@ -188,11 +188,11 @@ export default function CartPage() {
                         </div>
 
                         <div className="flex gap-4 mt-3">
-                          <button className="text-gray-900 transition-colors">
+                          <button className="text-gray-900 transition-colors cursor-pointer">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
+                              width="32"
+                              height="32"
                               viewBox="0 0 24 24"
                               fill="none"
                               stroke="currentColor"
@@ -207,23 +207,15 @@ export default function CartPage() {
                             onClick={() =>
                               handleRemove(item.id, item.size, item.color)
                             }
-                            className="text-gray-900 transition-colors"
+                            className="text-gray-900 transition-colors cursor-pointer"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="p-[2px] border-2 border-current rounded-md w-6 h-6"
-                            >
-                              <path d="M18 6 6 18" />
-                              <path d="m6 6 12 12" />
-                            </svg>
+                            <Image
+                              src="/Bin.png"
+                              alt="Remove"
+                              width={32}
+                              height={32}
+                              className="w-8 h-8 object-contain"
+                            />
                           </button>
                         </div>
                       </div>
@@ -242,26 +234,46 @@ export default function CartPage() {
 
             <div className="space-y-4 mb-1">
               <div className="flex justify-between items-center">
-                <span className="font-semibold text-[20px] uppercase">
+                <span
+                  className={`${openSans.className} font-semibold text-[20px] uppercase`}
+                >
                   {cartItems.reduce((acc, obj) => acc + obj.quantity, 0)} ITEM
                   {cartItems.length !== 1 ? 'S' : ''}
                 </span>
-                <span className="font-semibold text-[20px]">
+                <span
+                  className={`${openSans.className} font-semibold text-[20px]`}
+                >
                   ${subtotal.toFixed(2)}
                 </span>
               </div>
               <div className="flex justify-between items-center text-lg">
-                <span className="font-semibold text-[20px]">Delivery</span>
-                <span className="font-semibold text-[20px]">
+                <span
+                  className={`${openSans.className} font-semibold text-[20px]`}
+                >
+                  Delivery
+                </span>
+                <span
+                  className={`${openSans.className} font-semibold text-[20px]`}
+                >
                   ${delivery.toFixed(2)}
                 </span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="font-semibold text-[20px]">Sales Tax</span>
-                <span className="font-semibold text-[20px]">-</span>
+                <span
+                  className={`${openSans.className} font-semibold text-[20px]`}
+                >
+                  Sales Tax
+                </span>
+                <span
+                  className={`${openSans.className} font-semibold text-[20px]`}
+                >
+                  -
+                </span>
               </div>
               <div className="flex justify-between items-center text-xl pt-1">
-                <span className="font-semibold text-[24px] uppercase">
+                <span
+                  className={`font-semibold text-[24px] uppercase`}
+                >
                   Total
                 </span>
                 <span className="font-semibold text-[24px]">
