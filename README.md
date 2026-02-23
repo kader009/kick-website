@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KICKS - Premium Sneaker & Apparel Store
 
-## Getting Started
+KICKS is a modern, responsive e-commerce platform dedicated to high-end footwear, sneakers, and premium apparel. Built with a focus on premium aesthetics and seamless user experience, KICKS provides a sleek interface for browsing, selecting, and purchasing your favorite kicks and clothing items.
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The project features a fully responsive design, custom-built UI components, and a robust state management system. It includes detailed product pages, a centralized shopping cart, and a category-based navigation system, all optimized for both desktop and mobile devices.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: [Next.js 16.1+](https://nextjs.org/) (App Router)
+- **Library**: [React 19.2+](https://react.dev/)
+- **State Management**: [Redux Toolkit 2.11+](https://redux-toolkit.js.org/) & [React Redux 9.2+](https://react-redux.js.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Language**: [TypeScript 5.0+](https://www.typescriptlang.org/)
+- **Icons & Graphics**: Custom SVGs & [Lucide React](https://lucide.dev/)
+- **Notifications**: [React Hot Toast 2.6+](https://react-hot-toast.com/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup Instructions
 
-## Learn More
+Follow these steps to get the project running locally:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository**:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone https://github.com/kader009/kick-website
+   cd kick-website
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install dependencies**:
 
-## Deploy on Vercel
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Run the development server**:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production**:
+   ```bash
+   npm run build
+   npm start
+   ```
+
+Access the application at `http://localhost:3000`.
+
+## Live URL
+
+The project is deployed and accessible at:
+[https://kick-website-pi.vercel.app/](https://kick-website-pi.vercel.app/)
+
+## Notes
+
+- **Dynamic Navigation**: In sections like Categories and "You May Also Like", the Next/Prev buttons are functional and allow users to scroll through the data. While the implementation follows the Figma file, some visual adjustments were made to ensure a smooth transition between items.
+- **Loading States**: To improve user experience during data fetching, a combination of loaders and skeleton screens has been implemented, providing a perceived performance boost while content is loading.
+- **Cart Optimization**: The shopping cart, which was initially optional, has been fully implemented. On small devices, the layout and image handling differ slightly from the original Figma design to ensure the best possible visibility and responsiveness.
+- **Design Decisions**: During development, some colors and text styles in the provided Figma file appeared misleading. In these cases, deliberate choices were made to prioritize visual harmony and a premium user experience.
+- **Responsive Design**: Special attention was paid to mobile views, including custom grid layouts and specialized cart item displays.
