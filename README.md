@@ -59,3 +59,4 @@ The project is deployed and accessible at:
 - **Cart Optimization**: The shopping cart, which was initially optional, has been fully implemented. On small devices, the layout and image handling differ slightly from the original Figma design to ensure the best possible visibility and responsiveness.
 - **Design Decisions**: During development, some colors and text styles in the provided Figma file appeared misleading. In these cases, deliberate choices were made to prioritize visual harmony and a premium user experience.
 - **Responsive Design**: Special attention was paid to mobile views, including custom grid layouts and specialized cart item displays.
+- **Data Handling**: Due to some limitations or gaps in the provided API, dummy text and placeholder content were used in certain sections to ensure the UI remains complete and visually consistent with the intended design.

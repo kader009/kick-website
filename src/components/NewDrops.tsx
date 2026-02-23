@@ -18,7 +18,7 @@ export default function NewDrops() {
   return (
     <Container className="mb-20">
       <div className="flex flex-row justify-between items-center mb-8 md:mb-10 w-full gap-2">
-        <h2 className="text-[#232321] text-[24px] md:text-[72px] font-semibold uppercase leading-none md:leading-[0.9] tracking-tighter shrink">
+        <h2 className="text-[#232321] dark:text-white text-[24px] md:text-[72px] font-semibold uppercase leading-none md:leading-[0.9] tracking-tighter shrink">
           DON&apos;T MISS OUT
           <br />
           NEW DROPS
@@ -75,7 +75,7 @@ export default function NewDrops() {
 
               {/* Product Details */}
               <div className="flex flex-col mt-2">
-                <h3 className="font-bold text-[#232321] text-[16px] md:text-[20px] leading-[1.2] uppercase mb-4 line-clamp-2">
+                <h3 className="font-bold text-[#232321] text-[16px] md:text-[20px] leading-[1.2] uppercase mb-4 line-clamp-2 dark:text-white">
                   {product.title}
                 </h3>
 

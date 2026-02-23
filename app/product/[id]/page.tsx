@@ -161,7 +161,7 @@ export default function ProductDetailsPage() {
             </div>
 
             {/* Title & Price */}
-            <h1 className="text-[20px] md:text-[32px] font-semibold uppercase leading-tight text-[#232321] mb-[16px]">
+            <h1 className="text-[20px] md:text-[32px] font-semibold uppercase leading-tight text-[#232321] mb-[16px] dark:text-white">
               {product.title}
             </h1>
             <p className="text-[#4A69E2] text-[24px] font-semibold mb-[16px]">
@@ -252,14 +252,14 @@ export default function ProductDetailsPage() {
               <h3 className="font-semibold text-[16px] uppercase mb-[8px]">
                 ABOUT THE PRODUCT
               </h3>
-              <p className="text-sm text-[#232321] mb-4">{selectedColor}</p>
+              <p className="text-sm text-[#232321] mb-4 dark:text-white">{selectedColor}</p>
 
-              <p className="text-[#232321] text-[16px] mb-4 leading-relaxed">
+              <p className="text-[#232321] text-[16px] mb-4 leading-relaxed dark:text-white">
                 {product.description ||
                   'This product is excluded from all promotional discounts and offers.'}
               </p>
 
-              <ul className="text-[16px] text-[#232321] list-disc pl-5 space-y-2">
+              <ul className="text-[16px] text-[#232321] list-disc pl-5 space-y-2 dark:text-white">
                 <li>
                   Pay over time in interest-free installments with Affirm,
                   Klarna or Afterpay.

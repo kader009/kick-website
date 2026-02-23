@@ -17,7 +17,7 @@ export default function Hero() {
           className="font-bold uppercase leading-[0.8] text-[#232321] tracking-normal text-center w-full whitespace-nowrap my-[24px]"
           style={{ fontSize: 'clamp(60px, 15.5vw, 223.5px)' }}
         >
-          DO IT <span className="text-[#4A69E2]">RIGHT</span>
+          DO IT <span className="text-[#4A69E2] dark:text-white">RIGHT</span>
         </h1>
 
         {/* Hero Image Container */}

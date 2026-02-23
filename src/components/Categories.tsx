@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useCategoryQuery } from '../redux/api/endApi';
 import { Category } from '@/src/types/categoryType';
 
@@ -70,6 +71,7 @@ export default function Categories() {
             <button
               onClick={handlePrev}
               disabled={currentIndex === 0}
+              aria-label="Previous Category"
               className={`w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center transition-colors ${
                 currentIndex === 0
                   ? 'bg-gray-700 cursor-not-allowed text-gray-400'
@@ -93,6 +95,7 @@ export default function Categories() {
             <button
               onClick={handleNext}
               disabled={currentIndex + 2 >= allCategories.length}
+              aria-label="Next Category"
               className={`w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center transition-colors ${
                 currentIndex + 2 >= allCategories.length
                   ? 'bg-gray-700 cursor-not-allowed text-gray-400'
@@ -129,9 +132,12 @@ export default function Categories() {
             >
               {/* Product Image */}
               <div className="flex-1 flex items-center justify-center mb-6 z-10 w-full overflow-hidden">
-                <img
+                <Image
                   src={category.image}
                   alt={category.name}
+                  width={450}
+                  height={450}
+                  unoptimized
                   className="w-full max-w-[450px] object-contain group-hover:scale-105 transition-transform duration-500"
                 />
               </div>

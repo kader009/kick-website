@@ -36,7 +36,7 @@ export default function YouMayAlsoLike() {
   return (
     <Container className="mb-8">
       <div className="flex flex-row justify-between items-center mb-8 md:mb-10 w-full">
-        <h1 className="text-[#232321] text-[24px] md:text-[48px] font-semibold leading-none tracking-tighter uppercase">
+        <h1 className="text-[#232321] text-[24px] md:text-[48px] font-semibold leading-none tracking-tighter uppercase dark:text-white">
           You may also like
         </h1>
 
@@ -44,6 +44,7 @@ export default function YouMayAlsoLike() {
           <button
             onClick={handlePrev}
             disabled={currentIndex === 0}
+            aria-label="Previous Products"
             className={`w-10 h-10 md:w-12 md:h-12 rounded-[8px] flex items-center justify-center transition-colors ${
               currentIndex === 0
                 ? 'bg-gray-200 cursor-not-allowed'
@@ -67,6 +68,7 @@ export default function YouMayAlsoLike() {
           <button
             onClick={handleNext}
             disabled={currentIndex + 4 >= allShoes.length}
+            aria-label="Next Products"
             className={`w-10 h-10 md:w-12 md:h-12 rounded-[8px] flex items-center justify-center transition-colors ${
               currentIndex + 4 >= allShoes.length
                 ? 'bg-gray-200 cursor-not-allowed'
@@ -136,7 +138,7 @@ export default function YouMayAlsoLike() {
 
               {/* Product Details */}
               <div className="flex flex-col mt-2">
-                <h3 className="font-bold text-[#232321] text-[16px] md:text-[20px] leading-[1.2] uppercase mb-4 line-clamp-2">
+                <h3 className="font-bold text-[#232321] text-[16px] md:text-[20px] leading-[1.2] uppercase mb-4 line-clamp-2 dark:text-white">
                   {product.title}
                 </h3>
 

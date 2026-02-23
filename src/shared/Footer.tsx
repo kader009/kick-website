@@ -44,7 +44,7 @@ const Footer = () => {
               className="w-[150px] md:w-[250px] brightness-0 invert"
               style={{ filter: 'brightness(0) invert(1)' }}
             />
-            <div className="absolute top-[-10px] right-[-22px] md:top-[-20px] md:right-[-35px] bg-[#FFA52F] text-normal w-[26px] h-[26px] flex justify-center items-center rounded-full text-lg md:text-xl font-bold opacity-100 z-10">
+            <div className="absolute top-[-10px] right-[-26px] md:top-[-20px] md:right-[-35px] bg-[#FFA52F] text-normal w-[26px] h-[26px] flex justify-center items-center rounded-full text-lg md:text-xl font-bold opacity-100 z-10">
               <span className="leading-none mt-[-2px]">+</span>
             </div>
           </div>

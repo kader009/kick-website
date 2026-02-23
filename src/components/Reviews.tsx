@@ -27,7 +27,7 @@ export default function Reviews() {
       <div className="flex flex-col w-full">
         {/* Header */}
         <div className="flex justify-between items-center mb-[48px]">
-          <h1 className="text-[24px] md:text-[74px] font-semibold uppercase tracking-tighter text-[#232321]">
+          <h1 className="text-[24px] md:text-[74px] font-semibold uppercase tracking-tighter text-[#232321] dark:text-white">
             REVIEWS
           </h1>
           <button className="bg-[#4A69E2] hover:bg-blue-600 text-white font-medium py-3 px-6 md:px-8 rounded-[8px] text-[14px] md:text-[16px] uppercase tracking-wide">
