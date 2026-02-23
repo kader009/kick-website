@@ -34,7 +34,7 @@ export default function YouMayAlsoLike() {
   };
 
   return (
-    <Container className="mb-8 mt-32">
+    <Container className="mb-8">
       <div className="flex flex-row justify-between items-center mb-8 md:mb-10 w-full">
         <h1 className="text-[#232321] text-[24px] md:text-[48px] font-semibold leading-none tracking-tighter uppercase">
           You may also like

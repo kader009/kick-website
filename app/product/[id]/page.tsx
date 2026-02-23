@@ -64,7 +64,7 @@ export default function ProductDetailsPage() {
 
   return (
     <div className="min-h-screen">
-      <Container className="pt-[32px] mb-[128px]">
+      <Container className="pt-[32px] mb-[24px] md:mb-[128px]">
         <div className="flex flex-col lg:flex-row gap-[16px]">
           {/* Left Side - Image Gallery */}
           <div className="flex-1">
@@ -124,7 +124,7 @@ export default function ProductDetailsPage() {
               </div>
 
               {/* Thumbnails Row */}
-              <div className="flex justify-center gap-4 px-2 mt-2">
+              <div className="flex justify-start gap-4 px-2 mt-2 mb-[24px]">
                 {Array.from({ length: 4 }).map((_, index) => {
                   const imgUrl =
                     product?.images?.[index] || product?.images?.[0] || '';
@@ -134,7 +134,7 @@ export default function ProductDetailsPage() {
                       onClick={() => setActiveImageIndex(index)}
                       className={`w-[64px] h-[64px] rounded-[8px] flex items-center justify-center cursor-pointer transition-all ${
                         activeImageIndex === index
-                          ? 'ring-2 ring-[#4A69E2] scale-105'
+                          ? 'scale-105'
                           : 'opacity-100 hover:scale-105'
                       }`}
                     >
@@ -161,7 +161,7 @@ export default function ProductDetailsPage() {
             </div>
 
             {/* Title & Price */}
-            <h1 className="text-[32px] font-semibold uppercase leading-tight text-[#232321] mb-[16px]">
+            <h1 className="text-[20px] md:text-[32px] font-semibold uppercase leading-tight text-[#232321] mb-[16px]">
               {product.title}
             </h1>
             <p className="text-[#4A69E2] text-[24px] font-semibold mb-[16px]">
@@ -196,32 +196,23 @@ export default function ProductDetailsPage() {
                 </span>
               </div>
               <div className="grid grid-cols-5 gap-[4px] mb-[32px]">
-                {[
-                  '38',
-                  '39',
-                  '40',
-                  '41',
-                  '42',
-                  '43',
-                  '44',
-                  '45',
-                  '46',
-                  '47',
-                ].map((size) => (
-                  <button
-                    key={size}
-                    onClick={() => setSelectedSize(size)}
-                    className={`h-12 rounded-lg font-bold text-sm transition-colors cursor-pointer ${
-                      selectedSize === size
-                        ? 'bg-[#232321] text-white'
-                        : size === '39' || size === '40'
-                          ? 'bg-[#D2D1D3] text-gray-500'
-                          : 'bg-white text-gray-500 hover:bg-gray-200'
-                    }`}
-                  >
-                    {size}
-                  </button>
-                ))}
+                {['38', '39', '40', '41', '42', '43', '44', '45'].map(
+                  (size) => (
+                    <button
+                      key={size}
+                      onClick={() => setSelectedSize(size)}
+                      className={`h-12 rounded-lg font-bold text-sm transition-colors cursor-pointer ${
+                        selectedSize === size
+                          ? 'bg-[#232321] text-white'
+                          : size === '39' || size === '40'
+                            ? 'bg-[#D2D1D3] text-gray-500'
+                            : 'bg-white text-gray-500 hover:bg-gray-200'
+                      }`}
+                    >
+                      {size}
+                    </button>
+                  ),
+                )}
               </div>
             </div>
 
