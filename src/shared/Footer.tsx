@@ -14,23 +14,23 @@ const Footer = () => {
     <footer>
       <Container>
         {/* CTA Banner */}
-        <div className="bg-[#4A69E2] rounded-[48px] px-8 md:px-24 flex flex-col md:flex-row justify-around items-center gap-[200px] relative overflow-hidden z-10 pt-18 pb-32 md:pt-20 md:pb-40">
+        <div className="bg-[#4A69E2] rounded-[48px] px-8 md:px-24 flex flex-col md:flex-row justify-around items-start md:items-center gap-6 md:gap-[100px] relative overflow-hidden z-10 pt-12 pb-[120px] md:pt-20 md:pb-[170px]">
           <div className="flex flex-col gap-4">
-            <h2 className="text-white text-[48px] font-semibold uppercase leading-none tracking-tight">
+            <h1 className="text-white text-[32px] md:text-[48px] font-semibold uppercase leading-none tracking-tight text-left">
               JOIN OUR KICKSPLUS
               <br />
               CLUB &amp; GET 15% OFF
-            </h2>
-            <p className="text-white/80 text-sm md:text-base">
+            </h1>
+            <p className="text-white/80 text-sm md:text-base text-left">
               Sign up for free! Join the community.
             </p>
-            <div className="flex gap-1 mt-2">
+            <div className="flex justify-start gap-1 mt-2">
               <input
                 type="email"
                 placeholder="Email address"
-                className="bg-white/20 text-white placeholder-white/60 px-5 py-3 rounded-xl outline-none text-sm w-[220px] md:w-[280px] border border-white/30 focus:border-white transition"
+                className="bg-white/20 text-white placeholder-white/60 px-5 py-3 rounded-xl outline-none text-sm w-[236px] md:w-[280px] border border-white/30 focus:border-white transition"
               />
-              <button className="bg-[#232321] hover:bg-black text-white font-bold px-6 py-3 rounded-xl text-sm uppercase tracking-wide transition-colors">
+              <button className="bg-[#232321] hover:bg-black text-white font-semibold px-6 py-3 rounded-[8px] text-[14px] uppercase tracking-wide transition-colors">
                 SUBMIT
               </button>
             </div>
@@ -51,7 +51,7 @@ const Footer = () => {
         </div>
 
         {/* Dark Footer Section */}
-        <div className="bg-[#232321] rounded-[48px] mt-[-100px] pt-16 pb-0 px-8 md:px-16 relative z-20 overflow-hidden">
+        <div className="bg-[#232321] rounded-[48px] mt-[-80px] md:mt-[-130px] pt-16 pb-0 px-8 md:px-16 relative z-20 overflow-hidden">
           {/* Links Section */}
           <div className="flex flex-col md:flex-row gap-8 md:gap-[128px]">
             {/* About Us */}

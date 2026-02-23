@@ -61,7 +61,7 @@ export default function Categories() {
     <div className="bg-[#232321] text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 md:mb-12">
         <div className="flex justify-between items-center py-10">
-          <h1 className="text-[40px] md:text-[74px] font-semibold uppercase tracking-tighter">
+          <h1 className="text-[24px] md:text-[74px] font-semibold uppercase tracking-tighter">
             CATEGORIES
           </h1>
 
@@ -117,8 +117,8 @@ export default function Categories() {
         </div>
       </div>
 
-      {/* Full Width Grid touching right edge */}
-      <div className="pl-4 sm:pl-6 lg:pl-16">
+      {/* Full Width Grid touching right edge on desktop, with right and bottom gaps on mobile */}
+      <div className="pl-4 sm:pl-6 lg:pl-16 pr-4 md:pr-0 pb-10 md:pb-0">
         <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-0">
           {visibleCategories.map((category: Category, index: number) => (
             <div

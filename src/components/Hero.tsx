@@ -11,17 +11,17 @@ const openSans = Open_Sans({
 export default function Hero() {
   return (
     <Container>
-      <div className="flex flex-col items-center mt-2 md:mt-8 mb-20 w-full relative z-0">
+      <div className="flex flex-col items-center mb-[90px] md:md-[24px] w-full relative z-0">
         {/* Title */}
         <h1
-          className="font-bold uppercase leading-[0.8] text-[#232321] tracking-normal text-center mb-6 md:mb-10 w-full whitespace-nowrap"
-          style={{ fontSize: 'clamp(80px, 15.5vw, 223.5px)' }}
+          className="font-bold uppercase leading-[0.8] text-[#232321] tracking-normal text-center w-full whitespace-nowrap my-[24px]"
+          style={{ fontSize: 'clamp(60px, 15.5vw, 223.5px)' }}
         >
           DO IT <span className="text-[#4A69E2]">RIGHT</span>
         </h1>
 
         {/* Hero Image Container */}
-        <div className="relative w-full aspect-4/5 md:aspect-21/9 md:h-[700px] rounded-[48px] overflow-hidden bg-gray-200 shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
+        <div className="relative w-full aspect-4/5 md:aspect-21/9 md:h-[700px] rounded-[24px] md:rounded-[64px] overflow-hidden bg-gray-200">
           <Image
             src="/heroimage1.png"
             alt="Nike Air Max"
@@ -47,11 +47,11 @@ export default function Hero() {
 
           {/* Bottom Left Content */}
           <div className="absolute bottom-8 left-6 md:bottom-16 md:left-16 z-10 flex flex-col gap-2 md:gap-3">
-            <h2 className="text-white text-[74px] md:text-[76px] font-semibold uppercase tracking-tighter leading-none">
+            <h2 className="text-white text-[24px] md:text-[74px] font-semibold uppercase tracking-tighter leading-none">
               NIKE AIR MAX
             </h2>
             <p
-              className={`${openSans.className} text-[#E7E7E3] text-[24px] md:text-lg font-semibold max-w-[280px] md:max-w-[360px] leading-snug`}
+              className={`${openSans.className} text-[#E7E7E3] text-[14px] md:text-[24px] font-semibold max-w-[280px] md:max-w-[360px] leading-snug`}
             >
               Nike introducing the new air max for everyone&apos;s comfort
             </p>
