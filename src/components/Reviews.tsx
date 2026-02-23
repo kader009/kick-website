@@ -27,9 +27,7 @@ export default function Reviews() {
       <div className="flex flex-col w-full">
         {/* Header */}
         <div className="flex justify-between items-center mb-[48px]">
-          <h2
-            className="text-[74px] font-semibold uppercase tracking-tighter text-[#232321]"
-          >
+          <h2 className="text-[32px] md:text-[74px] font-semibold uppercase tracking-tighter text-[#232321]">
             REVIEWS
           </h2>
           <button className="bg-[#4A69E2] hover:bg-blue-600 text-white font-medium py-3 px-6 md:px-8 rounded-[8px] text-[14px] md:text-[16px] uppercase tracking-wide">
@@ -39,18 +37,18 @@ export default function Reviews() {
 
         {/* Review Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full">
-          {REVIEWS.map((review) => (
+          {REVIEWS.map((review, index) => (
             <div
               key={review.id}
-              className="bg-white rounded-[32px] overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow"
+              className={`bg-white rounded-[32px] overflow-hidden flex-col shadow-sm hover:shadow-md transition-shadow ${
+                index > 0 ? 'hidden sm:flex' : 'flex'
+              }`}
             >
               {/* Review Info */}
               <div className="p-5 md:p-6 flex flex-col gap-2">
                 <div className="flex justify-between items-start">
                   <div className="flex flex-col gap-1">
-                    <h3
-                      className="font-bold text-[#232321] text-lg md:text-xl"
-                    >
+                    <h3 className="font-bold text-[#232321] text-lg md:text-xl">
                       {review.title}
                     </h3>
                     <p

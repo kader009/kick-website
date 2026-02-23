@@ -17,8 +17,8 @@ export default function NewDrops() {
 
   return (
     <Container className="mb-20">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-10 w-full">
-        <h2 className="text-[#232321] text-[74px] md:text-[72px] font-semibold uppercase leading-[0.9] tracking-tighter">
+      <div className="flex flex-row justify-between items-center mb-8 md:mb-10 w-full gap-2">
+        <h2 className="text-[#232321] text-[24px] md:text-[72px] font-semibold uppercase leading-none md:leading-[0.9] tracking-tighter shrink">
           DON&apos;T MISS OUT
           <br />
           NEW DROPS
@@ -30,7 +30,7 @@ export default function NewDrops() {
       </div>
 
       {isLoading ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 w-full">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="animate-pulse">
               <div className="aspect-square bg-gray-200 rounded-[24px] mb-4"></div>
@@ -52,7 +52,7 @@ export default function NewDrops() {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 w-full">
           {shoeProducts.map((product: Product) => (
             <div key={product.id} className="flex flex-col flex-1 group">
               <div className="relative aspect-square bg-[#F4F5F7] rounded-[24px] overflow-hidden mb-4 p-4 flex items-center justify-center">

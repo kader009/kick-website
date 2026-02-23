@@ -96,7 +96,7 @@ export default function ProductDetailsPage() {
             {/* Mobile View - Slider style (Visible on small devices) */}
             <div className="md:hidden flex flex-col gap-4">
               {/* Main Image Container */}
-              <div className="w-full max-w-[358px] aspect-[358/273] mx-auto rounded-[16px] overflow-hidden relative">
+              <div className="w-full max-w-[358px] aspect-358/273 mx-auto rounded-[16px] overflow-hidden relative">
                 <Image
                   width={358}
                   height={273}
